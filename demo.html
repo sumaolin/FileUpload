@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>上传按钮 的样式优化插件</title>
+	<link rel="stylesheet" href="css/bass.css">
+	<style type="text/css">
+		body{padding: 50px;}
+.abtn{ display:inline-block; margin:0 7px; padding:4px 12px;	line-height: 20px; border-radius:4px; vertical-align: top; 	font-size: 12px; cursor:pointer; color:#fff !important; text-decoration:none; border:1px solid #2b77f5; border-bottom-color: #0057e8; background:#4a8eff; background:-moz-linear-gradient(top, #4a8eff, #4486f5); background:-webkit-linear-gradient(top, #4a8eff, #4486f5); }
+		
+	    .ainput_file{ position: relative; font-size: 13px; overflow: hidden; _zoom:1; _display: inline; } 
+	    .ainput_file em{ background:url(img/document_a4_upload.ico) 0 2px no-repeat; width: 16px; height: 20px; overflow: hidden; margin-right: 5px; line-height: 20em; vertical-align: middle; float: left;}
+	    .ainput_file span{ float: left;}
+	    .ainput_file input{ outline: none; display: block; position: absolute; top: 0; left: 0; *left:-3px; width: 100%; _width:100px; height: 100%; overflow: hidden; font-size: 100px; /* 增大不同浏览器的可点击区域 */ 
+	        opacity: 0; /* 实现的关键点 */ 
+	        filter:alpha(opacity=0);/* 兼容IE */ 
+	    }
+	    .filename{display: inline-block; _zoom:1; _display: inline; line-height: 20px; font-size: 12px; padding: 4px 0; width: 80px;
+	        -o-text-overflow:ellipsis;
+	        text-overflow:ellipsis;
+	        overflow: hidden;
+	        white-space: nowrap;
+	    }
+
+	    .wrap{padding: 15px 10px; margin: 15px; background: #efefef;}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+        
+        <input title='支持jpg、jpeg、gif、png格式，文件小于5M' tabIndex='3' type='file' size='3' name='pic' hidefocus="true" class="fnOpt">
+            
+    </div>
+
+<script type="text/javascript" src='js/jquery.js'></script>
+<script type="text/javascript" src='js/jquery.fileupload.js'></script>
+<script type="text/javascript">
+	$(".fnOpt").optFileUpload();
+</script>
+</body>
+</html>
