@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>上传按钮 预览本地图片 ie系列</title>
+	<link rel="stylesheet" href="css/base.css">
+	<style type="text/css">
+		body{padding: 50px;}
+	    .wrap{padding: 15px 10px; margin: 15px; background: #efefef;}
+		.preImg{display: none; max-width: 160px; max-height: 120px; border:none;}
+		#preview_ie{
+			FILTER: progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+        <form id="form1" runat="server">
+        	<input type="file" id="imgInp" />
+        	<img id="preview" src="" alt="" class="preImg">
+        	<div id="preview_ie"></div>
+        </form>
+        <a href="javascript:return false;"></a>
+    </div>
+
+<script type="text/javascript" src='js/jquery.js'></script>
+<script type="text/javascript">
+	function readURL(input){
+		if(input.files && input.files[0]){
+			var reader = new FileReader();
+			reader.onload = function(e){
+				$('#preview').attr('src', e.target.result);
+				$('#preview').show();
+			}
+			reader.readAsDataURL(input.files[0]);
+		}
+		if($.browser.msie){
+			var newPreview = document.getElementById("preview_ie");
+			// newPreview.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = input.value;
+			$('#preview').attr('src', input.value);
+			$('#preview').show();
+			// newPreview.style.width = "160px;";
+			// newPreview.style.height = "120px";
+		}
+		
+	}
+
+	$('#imgInp').change(function(){
+		readURL(this);
+	})
+</script>
+</body>
+</html>
