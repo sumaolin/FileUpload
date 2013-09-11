@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>上传按钮 预览本地图片</title>
+	<link rel="stylesheet" href="css/base.css">
+	<style type="text/css">
+		body{padding: 50px;}
+	    .wrap{padding: 15px 10px; margin: 15px; background: #efefef;}
+
+	</style>
+</head>
+<body>
+	<div class="wrap">
+        <form id="form1" runat="server">
+        	<input type="file" id="imgInp" />
+        	<img id="blah" src="#" alt="your Image"/>
+        </form>
+    </div>
+
+<script type="text/javascript" src='js/jquery.js'></script>
+<script type="text/javascript">
+	function readURL(input){
+		if(input.files && input.files[0]){
+			var reader = new FileReader();
+			reader.onload = function(e){
+				$('#blah').attr('src', e.target.result);
+			}
+			reader.readAsDataURL(input.files[0]);
+		}
+	}
+	$('#imgInp').change(function(){
+		readURL(this);
+	})
+</script>
+</body>
+</html>
